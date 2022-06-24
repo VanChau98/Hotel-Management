@@ -1,0 +1,91 @@
+﻿<Window x:Class="Hotel_Management.Views.EmployeeManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel_Management.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controlBar="clr-namespace:Hotel_Management.UserControlXAML"
+        xmlns:userControl="clr-namespace:Hotel_Management.UserControlXAML.EmployeeManager"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Title="EmployeeManager" Height="700" Width="1000"
+        Name="EmployeeManagerWindow"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <controlBar:ControlBar></controlBar:ControlBar>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Background="BlueViolet">
+                    <Label Content="Luxury Hotel"
+                               Foreground="Orange"
+                               FontSize="28"
+                               FontWeight="Bold"></Label>
+                    <Label Content="Employee Manager" 
+                               FontWeight="Bold" 
+                               FontSize="20" 
+                               HorizontalAlignment="Center" 
+                               Foreground="LightGray"></Label>
+
+                    <ListView x:Name="ListViewMenu" SelectionChanged="ListViewMenu_SelectionChanged">
+                        <ListViewItem Margin="0,10,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="AccountEdit" 
+                                                         Foreground="Black" 
+                                                         Height="40" 
+                                                         Width="35" 
+                                                         VerticalAlignment="Center"/>
+                                <TextBlock TextWrapping="Wrap" 
+                                           Text="Employee" 
+                                           Foreground="Black" 
+                                           TextAlignment="Center" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Margin="10" FontSize="20" ></TextBlock>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem  Margin="0,5,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Ballot" 
+                                                         Foreground="Black" 
+                                                         Height="40" 
+                                                         Width="35" 
+                                                         VerticalAlignment="Center"/>
+                                <TextBlock TextWrapping="Wrap" 
+                                           Text="Account " 
+                                           Foreground="Black" 
+                                           TextAlignment="Center" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Margin="10" FontSize="20" ></TextBlock>
+                            </StackPanel>
+                        </ListViewItem>
+                        
+                    </ListView>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" >
+                <userControl:Employee x:Name="employee"></userControl:Employee>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
